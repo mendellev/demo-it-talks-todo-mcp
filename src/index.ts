@@ -5,6 +5,14 @@ import { z } from "zod";
 
 // Configuration
 const API_BASE_URL = process.env.TODO_API_URL || "http://localhost:3000";
+const API_KEY = process.env.API_KEY;
+
+// Validate API_KEY is set
+if (!API_KEY) {
+  console.error("Error: API_KEY environment variable is required but not set.");
+  console.error("Please set the API_KEY environment variable and try again.");
+  process.exit(1);
+}
 
 // Zod Schemas for Todo application
 
@@ -74,6 +82,7 @@ async function apiRequest<T>(
     method,
     headers: {
       "Content-Type": "application/json",
+      "x-api-key": API_KEY!,
     },
   };
 

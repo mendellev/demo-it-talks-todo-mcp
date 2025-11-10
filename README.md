@@ -27,7 +27,9 @@ Copy `.env.example` to `.env` and configure:
 cp .env.example .env
 ```
 
-Set the `TODO_API_URL` environment variable to your Todo API endpoint (default: http://localhost:3000).
+Set the following environment variables:
+- `TODO_API_URL` - Your Todo API endpoint (default: http://localhost:3000)
+- `API_KEY` - API key for authentication (required)
 
 ## Building
 
@@ -58,7 +60,8 @@ Add to your MCP client configuration:
       "command": "node",
       "args": ["/path/to/todo-mcp/dist/index.js"],
       "env": {
-        "TODO_API_URL": "http://localhost:3000"
+        "TODO_API_URL": "http://localhost:3000",
+        "API_KEY": "your-api-key-here"
       }
     }
   }
