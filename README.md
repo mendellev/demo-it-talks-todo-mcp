@@ -55,9 +55,27 @@ npx -y @modelcontextprotocol/inspector  node dist/index.js -e API_KEY=very-secre
 
 The server uses stdio transport for communication. You can use it with any MCP-compatible client.
 
-### Claude Code configuration
+### Claude Code Configuration
 ```
 claude mcp add --transport=stdio todo -- env API_KEY=very-secret-value node todo-mcp/dist/index.js
+```
+
+
+### Claude Desktop Windows Configuration
+```
+{
+    "mcpServers": {
+        "todo":{
+            "command": "node",
+            "args": [
+                "C:\\demo-it-talks-todo-mcp\\dist\\index.js"
+            ],
+            "env":{
+                "API_KEY":"very-secret-value"
+            }
+        }
+    }
+}
 ```
 
 ### Example MCP Configuration
