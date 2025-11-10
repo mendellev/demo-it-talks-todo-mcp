@@ -45,9 +45,20 @@ Watch mode for development:
 npm run dev
 ```
 
+
+## Inspector view
+```
+npx -y @modelcontextprotocol/inspector  node dist/index.js -e API_KEY=very-secret-value
+```
+
 ## Usage
 
 The server uses stdio transport for communication. You can use it with any MCP-compatible client.
+
+### Claude Code configuration
+```
+claude mcp add --transport=stdio todo -- env API_KEY=very-secret-value node todo-mcp/dist/index.js
+```
 
 ### Example MCP Configuration
 
