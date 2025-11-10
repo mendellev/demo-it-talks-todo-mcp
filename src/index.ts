@@ -14,6 +14,8 @@ if (!API_KEY) {
   process.exit(1);
 }
 
+console.error(`Using API_BASE_URL=${API_BASE_URL} with API_KEY=${API_KEY}`);
+
 // Zod Schemas for Todo application
 
 // Todo entity schema
@@ -68,8 +70,6 @@ const DeleteTodoSchema = z.object({
 
 // Types
 type Todo = z.infer<typeof TodoSchema>;
-type CreateTodoDto = z.infer<typeof CreateTodoDtoSchema>;
-type UpdateTodoDto = z.infer<typeof UpdateTodoDtoSchema>;
 
 // API Helper functions
 async function apiRequest<T>(
@@ -86,9 +86,19 @@ async function apiRequest<T>(
     },
   };
 
+  console.error(`API_KEY=${API_KEY}`);
+
   if (body) {
     options.body = JSON.stringify(body);
   }
+
+  // Debug: Print full request details
+  console.error('===== REQUEST DEBUG =====');
+  console.error('URL:', url);
+  console.error('Method:', method);
+  console.error('Headers:', JSON.stringify(options.headers, null, 2));
+  console.error('Body:', options.body || 'No body');
+  console.error('========================');
 
   const response = await fetch(url, options);
 
