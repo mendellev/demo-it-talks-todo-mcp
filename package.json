@@ -1,0 +1,26 @@
+{
+  "name": "todo-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Todo application",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "todo-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": ["mcp", "todo", "server"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fastmcp": "^3.22.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3"
+  }
+}
