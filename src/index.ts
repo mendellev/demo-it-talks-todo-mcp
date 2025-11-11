@@ -41,13 +41,6 @@ const CreateTodoDtoSchema = z.object({
     .describe("Whether the todo is completed (optional, default: false)"),
 });
 
-// Update Todo DTO schema
-const UpdateTodoDtoSchema = z.object({
-  title: z.string().min(1).optional().describe("The title of the todo"),
-  description: z.string().optional().describe("The description of the todo"),
-  isCompleted: z.boolean().optional().describe("Whether the todo is completed"),
-});
-
 // Tool input schemas
 const GetTodoByIdSchema = z.object({
   id: z.number().positive().describe("The ID of the todo to retrieve"),
